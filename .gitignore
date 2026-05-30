@@ -2,4 +2,3 @@ node_modules/
 backend/expenses.db
 .env
 .DS_Store
-.pdf-venv/
