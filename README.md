@@ -30,26 +30,26 @@ Open **http://localhost:3000**
 
 ## Deploy online
 
-This app needs a Node.js server for `/api/*`. Static hosting alone is not enough.
+This app needs a **Node.js server** (`npm start`). It serves both the website and `/api/*`.
 
-### Option A: Netlify
+**Netlify will not work** for this project if you only publish the `frontend` folder — login and expenses will fail because the API is missing.
 
-The repo includes `netlify.toml`. Connect your GitHub repo on [Netlify](https://app.netlify.com/).
+### Deploy on Render (recommended)
+
+1. Push this repo to GitHub: [Gagan1407/task3expensemanagement](https://github.com/Gagan1407/task3expensemanagement)
+2. Go to [render.com](https://render.com) and sign in with GitHub
+3. Click **New +** → **Blueprint**
+4. Select the `task3expensemanagement` repository
+5. Render reads `render.yaml` automatically — click **Apply**
+6. Wait for the deploy to finish, then open the URL Render gives you (e.g. `https://task3expensemanagement.onrender.com`)
+
+### Manual Render setup (if not using Blueprint)
 
 | Setting | Value |
 |---------|--------|
+| Environment | Node |
 | Build command | `npm install` |
-| Publish directory | `frontend` |
-
-Add environment variable `JWT_SECRET` (any long random string) in Netlify site settings.
-
-After pushing to GitHub, trigger a new deploy. Open your Netlify URL (e.g. `https://your-site.netlify.app`).
-
-### Option B: Render (recommended for persistent data)
-
-1. Go to [render.com](https://render.com) and sign in with GitHub
-2. **New +** → **Blueprint** → select `task3expensemanagement`
-3. Click **Apply** (uses `render.yaml` automatically)
+| Start command | `npm start` |
 
 ## Commands
 
