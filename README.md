@@ -28,28 +28,37 @@ Open **http://localhost:3000**
 4. **Edit / Delete** — buttons on each row
 5. **Pie Chart** — category breakdown (no internet needed)
 
-## Deploy online
+## Deploy on Netlify
 
-This app needs a **Node.js server** (`npm start`). It serves both the website and `/api/*`.
+This app needs both static files **and** a Node.js API. The `netlify.toml` file configures both.
 
-**Netlify will not work** for this project if you only publish the `frontend` folder — login and expenses will fail because the API is missing.
-
-### Deploy on Render (recommended)
-
-1. Push this repo to GitHub: [Gagan1407/task3expensemanagement](https://github.com/Gagan1407/task3expensemanagement)
-2. Go to [render.com](https://render.com) and sign in with GitHub
-3. Click **New +** → **Blueprint**
-4. Select the `task3expensemanagement` repository
-5. Render reads `render.yaml` automatically — click **Apply**
-6. Wait for the deploy to finish, then open the URL Render gives you (e.g. `https://task3expensemanagement.onrender.com`)
-
-### Manual Render setup (if not using Blueprint)
+### Netlify settings
 
 | Setting | Value |
 |---------|--------|
-| Environment | Node |
 | Build command | `npm install` |
-| Start command | `npm start` |
+| Publish directory | `frontend` |
+| Functions directory | `netlify/functions` |
+
+These are set automatically from `netlify.toml` when you connect your GitHub repo.
+
+### Environment variables (recommended)
+
+In Netlify → **Site settings** → **Environment variables**, add:
+
+| Variable | Value |
+|----------|--------|
+| `JWT_SECRET` | A long random string |
+
+### After deploy
+
+1. Open your **Netlify site URL** (e.g. `https://your-site.netlify.app`)
+2. Do **not** use the GitHub repo URL or open HTML files directly
+
+### If you still see "Page not found"
+
+- Confirm **Publish directory** is `frontend` (not the project root)
+- Trigger a new deploy after pushing the latest code from GitHub
 
 ## Commands
 
