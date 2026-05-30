@@ -1,7 +1,12 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-const db = new Database(path.join(__dirname, 'expenses.db'));
+const isServerless = Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
+const dbPath = isServerless
+  ? path.join('/tmp', 'expenses.db')
+  : path.join(__dirname, 'expenses.db');
+
+const db = new Database(dbPath);
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
