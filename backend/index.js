@@ -143,6 +143,6 @@ app.delete('/api/expenses/:id', authMiddleware, (req, res) => {
 // Static website
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
-app.listen(PORT, () => {
-  console.log(`Expense Management running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Expense Management running on port ${PORT}`);
 });
