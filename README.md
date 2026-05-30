@@ -28,29 +28,6 @@ Open **http://localhost:3000**
 4. **Edit / Delete** — buttons on each row
 5. **Pie Chart** — category breakdown (no internet needed)
 
-## Deploy online
-
-This app needs a **Node.js server** (`npm start`). It serves both the website and `/api/*`.
-
-**Netlify will not work** for this project if you only publish the `frontend` folder — login and expenses will fail because the API is missing.
-
-### Deploy on Render (recommended)
-
-1. Push this repo to GitHub: [Gagan1407/task3expensemanagement](https://github.com/Gagan1407/task3expensemanagement)
-2. Go to [render.com](https://render.com) and sign in with GitHub
-3. Click **New +** → **Blueprint**
-4. Select the `task3expensemanagement` repository
-5. Render reads `render.yaml` automatically — click **Apply**
-6. Wait for the deploy to finish, then open the URL Render gives you (e.g. `https://task3expensemanagement.onrender.com`)
-
-### Manual Render setup (if not using Blueprint)
-
-| Setting | Value |
-|---------|--------|
-| Environment | Node |
-| Build command | `npm install` |
-| Start command | `npm start` |
-
 ## Commands
 
 | Command | Description |
